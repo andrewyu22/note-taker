@@ -4,7 +4,6 @@ const { addNote, deleteNote } = require('../../lib/note');
 
 router.get('/notes', (req, res) => {
     let results = notes;
-    console.log('IN NOTE API');
     res.json(results);
 })
 
@@ -14,9 +13,7 @@ router.post('/notes', (req, res) => {
 })
 
 router.delete('/notes/:id', (req, res) => {
-    console.log(req.body);
-    console.log(notes);
-    deleteNote(req.body, notes);
+    deleteNote(req.params.id, notes);
     res.json(req.body);
 })
 
